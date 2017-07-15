@@ -4,7 +4,7 @@ const config = {
 	// 接口信息配置
 	apiConfig:{
 		//接口地址
-		originUrl : 'http://10.88.76.187',
+		originUrl : '/api',
 		//七牛上传地址
 		qiuinUpload:"",
 		// 登录成功后调转到的url

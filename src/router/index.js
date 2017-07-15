@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import childRouterView from '@src/components/common/childRouterView'
-import webManage from '@src/router/webManage'
+import sys from '@src/router/sys'
 import home from '@src/router/home'
 
 Vue.use(Router)
 import path from './childPath'
 let _childRouter = [
-    ...webManage,
+    ...sys,
     ...home
 ];
 let childRouter = _childRouter.map(function (route) {
@@ -37,9 +37,9 @@ export default new Router({
       name:'login'
     },
     // 空路由跳转
-    {
-      path: '*',
-      redirect:'/page404'
-    }
+    // {
+    //   path: '*',
+    //   redirect:'/page404'
+    // }
   ]
 })

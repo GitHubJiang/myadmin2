@@ -1,7 +1,7 @@
 import path from './childPath'
 export default[
 	{
-		path:path.childPath+'/webmanage/userInfo',
+		path:path.childPath+'/sys/url',
 		name:'userInfo',
 		components:{
 			default:resolve => require(['../pages/index'],resolve)

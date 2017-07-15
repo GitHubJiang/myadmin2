@@ -60,12 +60,19 @@
 			this.init();
 			this.setActiveMenu();
 		},
+		// computed:{
+		// 	menuList:function () {
+		// 		return this.$store.state.menu.leftMenu;
+		// 	}
+		// },
 		methods:{
 			init(){
-				axios.get('/static/data/leftMenuData.json').then((res)=>{
-					this.menuList = res;
-					this.setMenuOpends();
-				});
+				console.log( this.$store.state.menu.leftMenu)
+				// axios.get('/static/data/leftMenuData.json').then((res)=>{
+				// 	this.menuList = res;
+					// this.setMenuOpends();
+				// });
+				this.menuList = this.$store.state.menu.leftMenu;
 			},
 			setActiveMenu(){
 				let _path_arr = location.hash.split('/'),
@@ -84,6 +91,12 @@
 						})
 					}
 				})
+			}
+		},
+		watch:{
+			'$store.state.menu.leftMenu':function(val){
+				this.menuList = val;
+				this.setMenuOpends();
 			}
 		}
 	}

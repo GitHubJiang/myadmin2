@@ -6,6 +6,7 @@ let axiosConfig = {
     init() { 
         // Vue.prototype.axios = axios;
         axios.defaults.baseURL = globalConfig.apiConfig.originUrl;
+        axios.defaults.withCredentials=true;
         axios.interceptors.request.use(function (config) {
             // console.log('config',config);
             config.headers['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -29,8 +30,10 @@ let axiosConfig = {
                     message:response.data.msg,
                     type:'error'
                 })
+                document.querySelector('.el-icon-loading').innerHTML = '';
+            }else{
+                return response.data;
             }
-            return response.data;
         }, function (error) {
             // Do something with response error
             return Promise.reject(error);
